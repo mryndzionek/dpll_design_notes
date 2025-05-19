@@ -122,6 +122,8 @@ And the final analysis results ($`\zeta=0.707`$):
 
 The loop structure is the same as before. The only difference is second-order loop filter:
 
+![img1](imgs/dpll_3_ct.png)
+
 $$
 F_{a}=\frac{b \omega_{n}^{2} s + c \omega_{n} s^{2} + \omega_{n}^{3}}{s^{2}}
 $$
@@ -135,7 +137,7 @@ $$
 Closed-loop system is therefore described by:
 
 $$
-H_{closed}=\frac{H_{open}}{1 + H_{open}}=\frac{s \tau_{2} + 1}{s^{2} \tau_{1} + s \tau_{2} + 1}=
+H_{closed}=\frac{H_{open}}{1 + H_{open}}=
 \frac{\omega_{n} \left(b \omega_{n} s + c s^{2} + \omega_{n}^{2}\right)}{b \omega_{n}^{2} s + c \omega_{n} s^{2} + \omega_{n}^{3} + s^{3}}
 $$
 
@@ -160,7 +162,7 @@ $$
 Finding the design parameters $`b`$ and $`c`$ is not easy in this case, but having the formulas for the poles we can find the parameters numerically.
 We can focus on the complex pole and try to minimize the distance between this pole and a desired pole $`\omega_ne^{\mathrm{j}(\pi - \cos^{-1}\zeta)}`$.
 We can see from the formulas that $`\omega_n`$ is just a scaling factor, so $`b`$ and $`c`$ effectively are determined by the damping factor $`\zeta`$.
-Here are values for some choices of $`\zeta`$ and search starting conditions around 2:
+Here are values for some choices of $`\zeta`$:
 
 | $`\zeta`$  |   $`b`$  |   $`c`$  |
 | ---------- | -------- | -------- |
