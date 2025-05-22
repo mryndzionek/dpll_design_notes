@@ -166,14 +166,35 @@ Here are values for some choices of $`\zeta`$:
 
 | $`\zeta`$  |   $`b`$  |   $`c`$  |
 | ---------- | -------- | -------- |
-|    0       | 1.0      | 1.0      |
+|    0.0     | 1.0      | 1.0      |
 |    0.4     | 1.8      | 1.8      |
 |    0.5     | 2        | 2        |
 | 0.707 ($`\frac{1}{\sqrt{2}}`$)  | 2.414213 | 2.414213 |
 |    0.8     | 2.6      | 2.6      |
 |    0.9     | 2.8      | 2.8      |
 
-So it looks that in for $`\zeta`$ in range $`[0,0.9]`$, $`b=c=1 + 2\zeta`$.
+So it looks that for $`\zeta`$ in range $`[0,0.9]`$, $`b=c=1 + 2\zeta`$.
+
+Another design parameter selection scheme, offering better closed-loop response in
+some cases (the real pole is closer to zero), might be:
+
+1. Set $`b`$ to $`2.9999`$
+2. Choose $`c`$ from below table for desired $`zeta`$
+3. Multiply the desired $`\omega_{n}`$ by $`\alpha`$
+
+| $`\zeta`$  |   $`c`$  |  $`\alpha`$  |
+| ---------- | -------- | ------------ |
+|    0.0     |  0.3333  |   0.5774     |
+|    0.1     |  0.6865  |   0.589      |
+|    0.2     |  1.0269  |   0.602      |
+|    0.3     |  1.3533  |   0.6166     |
+|    0.4     |  1.6643  |   0.6333     |
+|    0.5     |  1.9581  |   0.6527     |
+|    0.6     |  2.2322  |   0.6759     |
+|    0.7     |  2.4831  |   0.7048     |
+|    0.8     |  2.7053  |   0.7431     |
+|    0.9     |  3.1927  |   1.3711     |
+
 Now we know roughly how choose design parameters, so next step is discretization.
 Here is the discretized transfer function:
 
@@ -263,7 +284,7 @@ $`b=c=2.4142`$
 Here are also results for $`b=c=2.8`$
 
 $`b=c=2.8`$
-![img7](imgs/dpll_3_plots_1.png)
+![img7](imgs/dpll_3_plots_2.png)
 
 Zooming into the PLL simulation output shows that 3rd-order PLL can track frequency changes -
 there is no lag in presence of constant input frequency change - and the lock is achieved sooner:
